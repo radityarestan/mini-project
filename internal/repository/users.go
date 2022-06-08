@@ -8,18 +8,9 @@ import (
 	"github.com/radityarestan/mini-project/internal/entity"
 )
 
-type (
-	User interface {
-		FetchUserById(id int64) (*entity.User, error)
-		FetchUserByUsername(username string) (*entity.User, error)
-		FetchUsers() ([]*entity.User, error)
-		InsertUser(name string, username string, password string, role string) (*entity.User, error)
-	}
-
-	UserRepository struct {
-		db *sql.DB
-	}
-)
+type UserRepository struct {
+	db *sql.DB
+}
 
 func NewUserRepository(db *sql.DB) *UserRepository {
 	return &UserRepository{db: db}

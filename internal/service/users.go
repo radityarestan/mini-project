@@ -7,10 +7,6 @@ import (
 	"github.com/radityarestan/mini-project/internal/shared/dto"
 )
 
-type User interface {
-	Register(req *dto.RegisterRequest) (*dto.RegisterResponse, error)
-}
-
 func (s *Service) Register(req *dto.RegisterRequest) (*dto.RegisterResponse, error) {
 	oldUser, err := s.usersRepo.FetchUserByUsername(req.Username)
 
